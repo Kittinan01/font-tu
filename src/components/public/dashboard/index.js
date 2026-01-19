@@ -11,7 +11,7 @@ export default function   DashboardComponent() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const router = useRouter(); // 2. สร้าง instance ของ router
 
-  // 3. สร้างฟังก์ชันสำหรับจัดการการคลิกการ์ด
+  //สร้างฟังก์ชันสำหรับจัดการการคลิกการ์ด
   const handleCardClick = (path) => {
     if (path) router.push(path);
   };
@@ -87,19 +87,14 @@ export default function   DashboardComponent() {
         <div className="menu-grid">
           
       
-    {DASHBOARD_MENU.map((item) => ( //
-    // สำหรับแต่ละ "item" ในอาร์เรย์ ให้สร้าง <div /> ต่อไปนี้
-    <div 
-      // 2. กำหนด key ที่ไม่ซ้ำกันสำหรับแต่ละการ์ด (สำคัญสำหรับ React)
+    {DASHBOARD_MENU.map((item) => ( 
+        <div 
       key={item.id}
-      // 3. กำหนด CSS class แบบไดนามิก เช่น "menu-card variant-primary"
       className={`menu-card variant-${item.variant}`}
-      // 4. เพิ่ม onClick event handler
       onClick={() => handleCardClick(item.path)}
     >
-      {/* ส่วนของไอคอน */}
       <div className="card-icon-wrapper">
-        {/* 4. แสดงรูปภาพไอคอน โดยดึง URL มาจาก item.icon */}
+
         <Image 
           src={item.icon} 
           alt={item.title} 
@@ -109,14 +104,10 @@ export default function   DashboardComponent() {
         />
       </div>
 
-      {/* ส่วนของข้อความ */}
       <div className="card-text-content">
-        {/* 5. แสดงหัวข้อหลักของการ์ด จาก item.title */}
         <h2 className="card-title">{item.title}</h2>
-        {/* 6. แสดงคำอธิบายย่อย จาก item.subtitle */}
         <p className="card-subtitle">{item.subtitle}</p>
         
-        {/* 7. ตรวจสอบว่า item.badge มีข้อมูลหรือไม่ ถ้ามี ให้แสดงผล */}
         {item.badge && (
           <span className="card-badge">
             {item.badge}
@@ -130,7 +121,7 @@ export default function   DashboardComponent() {
         </div>
       </main>
 
-      {/* 3. Summary Footer Section */}
+      {/*  Summary Footer Section */}
       <div className="footer-wrapper">
         <footer className="dashboard-footer">
           <div className="summary-title">
