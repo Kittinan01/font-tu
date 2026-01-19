@@ -1,0 +1,1449 @@
+/* ==========================================================================
+   1. Global Styles & Variables
+   ========================================================================== */
+
+/*
+ * 1.1. CSS Custom Properties (Variables)
+ * -------------------------------------------------------------------------- */
+
+:root {
+  /* --- Brand Colors --- */
+  --color-primary: #832627; 
+  --color-primary-hover: #a34041;
+  --color-warning: #f8c835;
+  --color-warning-hover: #ffde76;
+  --color-success: #2A5952;
+  --color-success-hover: #408076;
+  --color-search: #EA5254;
+  --color-search-hover: #c83133; 
+  --color-info: #007bff;
+
+  /* --- Neutral Colors --- */
+  --bg-body: #f4f6f9;
+  --bg-white: #ffffff;
+  --text-main: #333333;
+  --text-secondary: #6c757d;
+  --border-color: #dee2e6;
+  --lien-color:#E5E5EA;
+
+  /* --- Component Variables --- */
+  --table-header-bg: var(--color-primary);
+  --table-header-text: #ffffff;
+  
+  /* --- Typography --- */
+
+  /* --- Text Colors --- */
+  --color-text-white: #FFFFFF;
+  --color-text-gray-medium: #646060;
+  --color-text-gray-dark: #3F3F3F;
+  --color-text-gray-light: #AEA6A6;
+  --color-text-brand-green: #2A5952;
+  --color-text-accent-red: #DA090D;
+  --color-text-accent-yellow: #EE9D00;
+  --color-text-red-dark: #832627;
+  --color-text-red-light: #CD7576;
+
+  /* --- New Variables for Summary Card --- */
+  --smooth-radius: 20px; /* ปรับความโค้งมนของจุดเชื่อมต่อให้สมส่วน */
+
+  /* กำหนดให้ใช้ฟอนต์ Outfit เป็นหลัก และ Prompt เป็นฟอนต์สำรองสำหรับภาษาไทย */
+  --font-family-base: var(--font-outfit), var(--font-prompt), sans-serif;
+}
+
+/*
+ * 1.2. Base Body Styles
+ * -------------------------------------------------------------------------- */
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-family-base); /* เรียกใช้ตรงนี้ */
+  background-color: var(--bg-body);
+  color: var(--text-main);
+}
+
+/* ==========================================================================
+   2. Layout Components (Shared across pages)
+   ========================================================================== */
+
+.dashboard-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+  background-color: var(--bg-white);
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 2rem; /* ลด padding บน-ล่าง เพื่อลดความสูง */
+  
+}
+
+/*
+ * 2.1. Header
+ * -------------------------------------------------------------------------- */
+
+
+.header-left-section {
+  display: flex;
+  align-items: center
+}
+.header-logo {
+  display: flex;
+  align-items: center;
+  width: 120px;
+}
+
+.line {
+  width: 2px;
+  height: 30px; /* You can adjust the height */
+  background-color: var(--color-primary); /* Using the primary red color */
+  margin: 0 2px; /* กำหนดระยะห่างซ้าย-ขวา 2px */
+}
+.header-title {
+  margin-left: 2px; /* กำหนดระยะห่างด้านซ้าย 2px */
+  color: var(--color-text-brand-green);
+  line-height: 1.3; /* ลดระยะห่างระหว่างบรรทัด */
+}
+
+.header-title p {
+  margin: 0; /* ลบระยะห่างเริ่มต้นของ paragraph */
+  font-weight:400 ;
+  font-size: 13px;
+}
+
+.header-user-section {
+  position: relative;
+  width: 45px;  /* ปรับขนาดให้เท่ากับปุ่มโปรไฟล์ */
+  height: 45px; /* ปรับขนาดให้เท่ากับปุ่มโปรไฟล์ */
+}
+
+.header-user-profile {
+  cursor: pointer;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  border:4px solid var(--bg-white);
+  background-color: var(--bg-body);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 0; /* Reset button padding */
+  box-shadow:0 2px 8px rgba(0,0,0,0.5);
+
+}
+
+/*
+ * 2.2. User Dropdown Menu
+ * -------------------------------------------------------------------------- */
+
+.user-dropdown {
+  position: absolute;; 
+  right: 0;
+  background-color: var(--bg-white);  
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15); /* ลดเงาให้ดูเบาลง */
+  width: 150px; /* ปรับความกว้าง */
+  z-index: 100;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  padding: 2px 0; /* ลด padding บน-ล่าง */
+}
+
+.dropdown-item {
+  padding: 8px 12px; /* ลด padding ภายใน */
+  font-size: 15px; /* ลดขนาดฟอนต์ */
+  color: var(--text-main);
+  background: none;
+  border: none;
+  text-align: left;
+  width: 100%;
+}
+
+.dropdown-user-info {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  font-weight: 600;
+  color: var(--color-text-brand-green);
+}
+
+.dropdown-user-info img,
+.dropdown-user-info .dropdown-user-image {
+  border-radius: 50%;
+  object-fit: cover; /* ป้องกันภาพบิดเบี้ยว */
+  width: 30px;
+  height: 30px;
+  display: block;
+}
+
+.dropdown-divider {
+  width: 130px; /* กำหนดความยาว 120px */
+  height: 1px;
+  border: none;
+  border-top: 1px dashed var(--color-text-brand-green); /* สร้างเส้นประ */
+  margin: 4px auto; /* จัดกึ่งกลาง (บน-ล่าง 4px, ซ้าย-ขวา auto) */
+  
+}
+
+.dropdown-logout-button {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* ลดระยะห่างระหว่างไอคอนกับข้อความ */
+  color: var(--color-text-brand-green);
+  cursor: pointer;
+}
+
+.dropdown-logout-button:hover {
+  background-color: #fef2f2; /* Light red background on hover */
+}
+
+  .menu-card {
+  /* กำหนดตำแหน่งเพื่อเป็นจุดอ้างอิงให้ element ลูก */
+  position: relative;
+  display: flex;
+  align-items: center;
+  
+  /* Responsive adjustments */
+  padding: 1.5rem 2rem;
+  min-height: 130px;
+  border-radius: 100px; 
+  cursor: pointer;
+  
+  /* ทำให้การเปลี่ยนแปลงขนาดและเงามีความนุ่มนวล (animation) */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  
+  /* เพิ่มเงาให้กับการ์ด */
+  box-shadow: 0 6px 5px rgba(0,0,0,0.4) ;
+  overflow: hidden;
+  
+  /* กำหนดให้ขนาดของการ์ดรวม padding และ border เข้าไปด้วย */
+  box-sizing: border-box;
+  
+  /* กำหนดสีพื้นหลังโดยใช้ตัวแปร */
+  background-color: var(--color-success);
+  
+  /* แก้ไขค่า gap ที่ผิดพลาด และกำหนดค่าเริ่มต้นสำหรับ mobile */
+  gap: 5rem; 
+
+}
+
+.menu-card:hover {
+  filter: brightness(1.1); /* ลดความสว่างลงเล็กน้อยเพื่อความสวยงาม */
+  box-shadow: 0 5px 5px rgba(0,0,0,0.5); /* อาจจะคงเงาเดิมหรือปรับเล็กน้อย */
+}
+
+/* 1. ประวัติการสแกน (สี Primary: แดงเลือดหมู) */
+.menu-card.variant-primary {
+  background-color: var(--color-primary);
+  color: var(--color-text-white);
+}
+.menu-card.variant-primary .card-badge {
+  background-color: rgba(255, 255, 255, 0.25);
+  color: var(--color-text-white);
+}
+
+/* 2. อัปโหลดเอกสาร (สี Success: เขียวเข้ม) */
+.menu-card.variant-success {
+  background-color: var(--color-success);
+  color: var(--color-text-white);
+}
+.menu-card.variant-success .card-badge {
+  background-color: #4A7870; /* Tone on tone */
+  color: var(--color-text-white);
+  
+}
+
+/* 3. คลังเอกสาร (สี Warning: เหลืองทอง) */
+.menu-card.variant-warning {
+  background-color: var(--color-warning);
+  color: #333333; /* พื้นหลังเหลือง ต้องใช้ตัวหนังสือสีเข้ม */
+  
+}
+.menu-card.variant-warning .card-badge {
+  background-color: rgba(255, 255, 255, 0.6);
+  color: var(--color-text-dark);
+}
+
+/* 4. ค้นหาเอกสาร (สี Search: แดงส้ม) */
+.menu-card.variant-search {
+  background-color: var(--color-search); /* ใช้ตัวแปร --color-search */
+  color: var(--color-text-white);
+}
+.menu-card.variant-search .card-badge {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: var(--color-text-white);
+}
+
+.card-icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  /* Responsive adjustments */
+  width: 60px;
+  height: 60px;
+}
+
+.card-text-content {
+  display: flex;
+  flex-direction: column;
+  z-index: 2;
+}
+
+.card-title {
+  margin: 0 0 5px;
+  font-size: 15px; /* ปรับขนาดให้เหมาะกับมือถือ */
+  font-weight: 600; /* ปรับจาก 'bold' เป็น '400' (Regular) */
+  line-height: 2.5rem;
+  letter-spacing: 0.5px;
+
+}
+
+.card-subtitle {
+  font-size: 10px;
+  font-weight: 400;
+  margin: 0 0 8px 0;
+  opacity: 0.9;
+}
+
+.card-badge {
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  width: fit-content;
+  backdrop-filter: blur(4px);
+}
+
+/* Search (ใช้สีแดงเลือดหมูตามภาพต้นแบบ หรือใช้สี Search ถ้าต้องการแยก) */
+.menu-card.variant-search {
+  background-color: var(--color-primary); 
+  color: var(--color-text-white);
+}
+/*
+ * 3.2. Footer Summary Section
+ * -------------------------------------------------------------------------- */
+
+.footer-wrapper { 
+  margin-top: 4rem; /* เพิ่มระยะห่างจาก content ด้านบน */
+}
+
+.dashboard-footer { 
+  width: 100%;
+  /* ไม่ต้องกำหนด max-width ที่นี่แล้ว เพื่อให้พื้นหลังขยายเต็ม */
+  display: flex;
+  flex-direction: column;
+}
+
+.summary-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: var(--color-text-gray-medium); /* ใช้ variable ตามที่ขอ */
+  margin-bottom: 5rem; /* เว้นที่ให้การ์ดลอย */ 
+  /* จัดตำแหน่ง title ให้อยู่ในกรอบเดียวกับ content */
+  max-width: 1200px;
+  padding: 0 2rem;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+}
+
+.summary-curve-bg {
+  background-color: var(--color-success); /* ใช้สีเขียว Brand */
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  padding-top: 5rem;
+  padding-bottom: 2rem;
+  position: relative;
+  min-height: 80px;
+  
+}
+
+.summary-cards-wrapper {
+  /* ปรับจาก absolute เป็น relative เพื่อให้ wrapper อยู่ใน flow ปกติ */
+  position: relative;
+ 
+  margin-top: -70px;
+  display: flex;
+  flex-direction: column; /* Mobile: เรียงแนวตั้ง */
+  align-items: center;
+  gap: 4rem; 
+  z-index: 1;
+  
+  filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.1));
+}
+
+.card-body {
+  position: relative;
+  background-color: var(--bg-white);
+  border-radius: 24px;
+  padding: 36px 24px 20px;
+  border-radius: 20px;
+  width: 220px; /* ปรับความกว้างให้เหมาะสม */
+  height: 40px;
+  text-align: center;
+  filter: drop-shadow(0 5px 5px rgba(0, 0, 0, 0.5));
+}
+
+/*
+ * 3.3. Summary Card (Card with curved top)
+ * -------------------------------------------------------------------------- */
+
+.card-body::before {
+  content: '';
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 40px; 
+  background-color: var(--bg-white);
+  border-radius: 40px 40px 0 0;
+  z-index: 1;
+}
+
+.card-body::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 105px; /* ความกว้าง = 80px (ส่วนนูน) + 2 * 20px (รัศมีโค้ง 2 ข้าง) */
+  height: var(--smooth-radius); /* ทำให้ความสูงเท่ากับรัศมีความโค้ง */
+  background: transparent;
+  z-index: 0;
+  /*สร้างมุมโค้งเว้าด้วย radial-gradient */
+  background-image: 
+      radial-gradient(circle at 0 0, transparent var(--smooth-radius), var(--bg-white) calc(var(--smooth-radius) + 1px)),
+      radial-gradient(circle at 100% 0, transparent var(--smooth-radius), var(--bg-white) calc(var(--smooth-radius) + 1px));
+  background-size: var(--smooth-radius) var(--smooth-radius);
+  background-position: 0 0, 100% 0;
+  background-repeat: no-repeat;
+  margin-top: calc(-1 * var(--smooth-radius)); /* ดันขึ้นไปให้ชนขอบบนพอดี */
+}
+
+.icon-container {
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stat-card-circle-bg{
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+  gap: 4rem; 
+
+}
+.stat-group {
+  display: flex;
+  justify-content: center;
+  align-items: center; /* จัดให้ baseline ของข้อความตรงกัน */
+  gap: 1.5rem; /* ระยะห่างระหว่าง value และ label */
+  margin-bottom: 8px; /* ย้าย margin-bottom มาไว้ที่นี่ */
+}
+
+.stat-value {
+  font-size: 30px;
+  font-weight: 800;
+  color: #1f2937;
+  line-height: 1; /* ปรับ line-height ให้พอดี */
+}
+
+.divider {
+  width: 180px;
+  height: 4px;
+  background: var(--lien-color);
+  margin: 0px auto 10;
+}
+
+.stat-label {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--color-text-gray-medium);
+  position: relative;
+  z-index: 5;
+}
+
+/* ==========================================================================
+   4. Utility Classes
+   ========================================================================== */
+
+.text-brand-green { color: var(--color-text-brand-green); }
+.text-accent-red { color: var(--color-text-accent-red); }
+.text-accent-yellow { color: var(--color-text-accent-yellow); }
+
+/* ==========================================================================
+   5. Page Layout & Content Wrappers
+   ========================================================================== */
+
+/* --- Dashboard Content Grid --- */
+
+.dashboard-content {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 1rem; /* Mobile padding */
+}
+
+.menu-grid {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: 1fr; /* Default เป็น 1 คอลัมน์ (Mobile) */
+  gap: 2rem; 
+  width: 100%; /* เปลี่ยนจาก 1100px เป็น 100% */
+  max-width: 1100px; /* คุมความกว้างสูงสุดแทน */
+}
+
+/* --- History Page Layout --- */
+
+
+
+.historypage-bg{
+  background: var(--color-primary);
+  width: 100%;
+  height:100%;
+}
+.historypage{
+  display: flex;
+  align-items: center; /* เปลี่ยนเป็น stretch เพื่อให้ content ยืดเต็มความสูง */
+  justify-content: center;
+  flex-direction: row;
+  width: 100%;
+  min-height: 100vh; /* เพิ่มความสูงขั้นต่ำให้เต็มหน้าจอ */
+  background: var(--color-primary);
+  gap: 10px 10px;
+  box-sizing: border-box; /* ทำให้ padding ไม่ไปเพิ่มขนาดโดยรวม */
+  padding-right: 10px; /* เพิ่มระยะห่างขอบจอด้านขวา */
+  
+}
+
+/* ==========================================================================
+   6. History Page
+   ========================================================================== */
+
+/* --- Left Sidebar Tabs --- */
+.tap-history{
+  background: var(--bg-white);
+  width: 60px;
+  height: auto;
+  align-self: stretch; /* สั่งให้ item นี้ยืดความสูงให้เต็มแถวของ flex container */
+  border-bottom-right-radius: 20px;
+  border-top-right-radius:20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* จัด item ทั้งหมดให้อยู่กึ่งกลางแนวนอน */
+  justify-content: space-between; /* ดันกลุ่มบนและปุ่มล่างให้แยกจากกัน */
+  padding: 1rem 0; /* เพิ่ม padding บน-ล่าง */
+}
+
+.tap-history-top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem; /* ระยะห่างระหว่างโลโก้และปุ่ม folder */
+}
+
+.icon-folder{
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2)); /* เพิ่มเงาให้ไอคอน */
+
+  width: 100%; /* ทำให้ไอคอนยืดเต็มพื้นที่ปุ่ม */
+  height: 100%; /* ทำให้ไอคอนยืดเต็มพื้นที่ปุ่ม */
+  object-fit: contain; /* ปรับขนาดรูปให้พอดีกับกรอบโดยไม่เสียสัดส่วน */
+}
+.folder-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 35px;
+  height: 35px;
+  background-color: var(--border-color);
+  color: var(--color-text-gray-medium);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.folder-button.active {
+  background-color: var(--bg-white);
+  color: var(--color-text-gray-dark);
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2)); /* เพิ่มเงาให้ไอคอน */
+}
+
+.refreshwh-button{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 35px;
+  height: 35px;
+  background-color: var(--border-color);
+  color: var(--color-text-gray-medium);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;  
+}
+.refreshwh-button:hover {
+  background-color: var(--color-success); /* เปลี่ยนพื้นหลังเป็นสีเขียวเมื่อ hover */
+}
+
+/* --- Main Content Area --- */
+
+.history-header { 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem; /* ระยะห่างระหว่าง header กับตาราง */
+}
+
+.history-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem; /* ระยะห่างระหว่างปุ่มกดกลับและโปรไฟล์ */
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 20px;
+  margin-top: 10px;
+}
+
+.back-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 35px;  /* ปรับขนาดให้เท่ากับปุ่มโปรไฟล์ */
+  height: 35px; /* ปรับขนาดให้เท่ากับปุ่มโปรไฟล์ */
+  
+  background-color: var(--color-success); /* Green background */
+  color: var(--bg-white); /* White icon */
+  border: none;
+  border-radius: 50%; /* Make it a circle */
+  cursor: pointer;
+  transition: background-color 0.2s;
+  box-shadow:0 2px 8px rgba(0,0,0,0.5);
+}
+
+.back-button:hover {
+  background-color: var(--color-success-hover);
+ 
+}
+
+.title-history {
+  margin-top:-10px;
+  font-weight: 550; /* Bold */
+  font-size: 16px;
+  line-height:1; /* 100% */
+  color: var(--color-text-brand-green);
+  margin-bottom: 0; /* ย้าย margin ไปที่ .history-header แทน */
+  padding: 12px;
+
+}
+
+.history-content {
+  flex-grow: 1; /* ทำให้ content ขยายเต็มพื้นที่ที่เหลือ */
+  border-radius: 20px ;
+  background: var(--bg-white);
+  box-sizing: border-box;
+  padding: 0.5rem 1rem 0.5rem; /* ลด padding ด้านบนลงอีก */
+  height: calc(100vh - 1rem); /* ปรับความสูงให้เหมาะสมกับ padding ของ historypage */
+  width: 80%; /* ทำให้ content ขยายเต็มความกว้าง */
+  display: flex; /* เปลี่ยนเป็น Flex Container */
+  flex-direction: column; /* จัดเรียงเนื้อหาในแนวตั้ง */
+}
+
+/* --- Table Styles --- */
+
+.table-card{
+  /* นำ position: absolute และขนาดคงที่ออก */
+  flex-grow: 1; /* ทำให้การ์ดขยายเต็มพื้นที่ที่เหลือในแนวตั้ง */
+  border-radius: 25px;
+  border: 2px solid var(--color-primary);
+  display: flex;
+  flex-direction: column; /* จัดเรียง table และ pagination แนวตั้ง */
+  box-sizing: border-box;
+  overflow: auto; /* เพิ่ม scrollbar หากเนื้อหาภายในยาวเกิน */
+  min-height: 0; /* ป้องกันปัญหา flexbox item ล้น container */
+}
+
+.table-card {
+  -ms-overflow-style: none;  /* สำหรับ IE และ Edge */
+  scrollbar-width: none;  /* สำหรับ Firefox */
+}
+.table-card::-webkit-scrollbar {
+  display: none; /* สำหรับ Chrome, Safari, และ Opera */
+}
+
+.custom-table{
+  width: 100%; /* ทำให้ตารางขยายเต็ม table-card */
+  border-collapse: separate; /* สำคัญมากเพื่อให้ border-radius บน thead ทำงาน */
+  border-spacing: 0; /* ลบช่องว่างระหว่างเซลล์ */
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  min-width: 1200px; /* 1. กำหนดความกว้างขั้นต่ำ เพื่อให้เกิดการ scroll ด้านข้าง */
+}
+
+/* --- Table Status (Loading/Empty) --- */
+.table-status-message {
+  width: 100%; /* ทำให้ตารางขยายเต็ม table-card */     
+  height: 100%;
+  border-collapse: separate; /* สำคัญมากเพื่อให้ border-radius บน thead ทำงาน */
+  border-spacing: 0; /* ลบช่องว่างระหว่างเซลล์ */
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  display: flex;
+  flex-direction:column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  color: var(--color-text-gray-light);
+  min-width: 1200px; /* 1. กำหนดความกว้างขั้นต่ำ เพื่อให้เกิดการ scroll ด้านข้าง */
+}
+
+/* --- Table Header --- */
+.table-head{
+  background-color: var(--table-header-bg, var(--color-primary)); /* ใช้ตัวแปรสำหรับสีพื้นหลัง */
+  color: var(--table-header-text, white); /* ใช้ตัวแปรสำหรับสีตัวอักษร */
+  width: 100%; /* ทำให้ thead ขยายเต็มความกว้างของ table */
+  
+}
+.title-table{
+  color: var(--table-header-text);
+}
+
+.table-head th {
+  position: sticky; /* ทำให้หัวตารางตรึงอยู่ด้านบน */
+  top: 0; /* กำหนดให้อยู่บนสุดของ scroll container */
+  z-index: 1; /* จัดลำดับให้ซ้อนทับเนื้อหาตาราง */
+  background-color: var(--table-header-bg); /* กำหนดสีพื้นหลังให้ th โดยตรง ป้องกันการโปร่งใสตอนเลื่อน */
+  padding: 12px 15px; /* เพิ่ม padding ให้หัวตารางดูโปร่งขึ้น */
+  text-align: center; /* จัดข้อความชิดซ้าย (หรือ center ตามต้องการ) */
+  font-size: 12px; /* ปรับขนาดตัวอักษรตามที่ต้องการ */
+  letter-spacing: 0.5px;
+  font-weight: 400; /* ปรับความหนาตัวอักษรตามที่ต้องการ */
+}
+
+/* --- Table Body & Rows --- */
+.custom-table tbody td {
+  padding: 12px 15px; /* ระยะห่างภายในเซลล์ให้เท่ากับ header */
+  font-size: 12px; /* ขนาดตัวอักษร */
+  font-weight: 400; /* ความหนาปกติ (ตัวบาง) */
+  color: black; /* สีตัวอักษรหลัก (ดำ) */
+  text-align: center; /* จัดกึ่งกลางให้ตรงกับ header */
+
+}
+
+.table-body td{
+  border-bottom: none;
+  position: relative;
+  padding: 12px 15px;
+}
+.custom-table tbody tr {
+  position: relative;
+}
+
+.custom-table tbody tr::after {
+  content: "";
+  position: absolute;
+  left: 20px;
+  right: 20px;
+  bottom: 0;
+  border-bottom: 1px dashed var(--color-primary);
+}
+
+.custom-table tbody tr:last-child::after {
+  display: none;
+}
+
+/* --- Table Actions --- */
+
+.action-icons {
+  display: flex;
+  justify-content: center; /* จัดปุ่มให้อยู่กึ่งกลางเซลล์ */
+  align-items: center;
+  gap: 8px; /* เว้นระยะห่างระหว่างปุ่ม */
+}
+
+.icon-btn {
+  background-color: var(--bg-white); /* พื้นหลังสีขาว */
+  border: 1px solid var(--border-color); /* เพิ่มเส้นขอบบางๆ */
+  width: 25px;  /* กำหนดขนาดปุ่ม */
+  height: 25px; /* กำหนดขนาดปุ่ม */
+  border-radius: 50%; /* ทำให้เป็นวงกลม */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* เพิ่มเงาให้ปุ่ม */
+  transition: background-color 0.2s, box-shadow 0.2s;
+}
+
+.icon-btn:hover {
+  background-color: var(--bg-body); /* เปลี่ยนสีพื้นหลังเมื่อ hover */
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15); /* เพิ่มเงาเมื่อ hover */
+}
+
+/* --- Pagination --- */
+
+.pagination-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 15px;
+    font-size: 0.9rem;
+    flex-direction: column;
+}
+
+.pagination-info {
+    display: flex;
+    color: var(--color-primary);
+    align-items: center;
+    gap: 85px;   
+    font-size: 12px;
+}
+
+.pagination-select {
+    /* 1. ซ่อนลูกศรเริ่มต้นของ browser */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    /* 2. เพิ่มลูกศรสามเหลี่ยมทึบที่สร้างจาก SVG */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6' fill='none'%3E%3Cpath d='M5 6L0.669873 0.75L9.33013 0.750001L5 6Z' fill='%23832627'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+
+    color: var(--color-primary);
+    cursor: pointer;
+    background-color: #fff;
+    border: 1px solid var(--color-primary);
+    border-radius: 10px;
+    outline: none;
+    padding: 2px 24px 2px 8px; /* 3. ปรับ padding เพื่อให้มีที่สำหรับลูกศรใหม่ */
+    font-size: 13px;
+}
+
+.pagination-controls {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    
+}
+
+.page-btn {
+    background: none;
+    border: none;
+    color: var(--color-primary);
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-family: var(--font-prompt); 
+    font-weight: 700; /* เพิ่มความหนาให้ลูกศร */
+}
+
+.page-btn-text {
+    background: none;
+    border: none;
+    color: var(--color-primary);
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-family: var(--font-prompt);
+    font-weight: 500; /* ลดความหนาของตัวหนังสือ */
+}
+
+.pbtn{
+   background: none;
+    border: none;
+    color: var(--color-primary);
+    cursor: pointer;
+    font-size: 0.9rem;
+    padding-right: 1px;
+    font-family: var(--font-prompt); 
+    font-weight: 700; /* เพิ่มความหนาให้ลูกศร */
+}
+/* ปรับแต่ง Table Header เพิ่มเติมให้โค้งสวย */
+
+.custom-table thead tr th:first-child {
+    border-top-left-radius: 20px;
+}
+.custom-table thead   tr th:last-child {
+    border-top-right-radius: 20px;
+}
+
+.current-page-number{
+  color: var(--color-primary);
+   font-family: var(--font-prompt);
+  
+}
+
+/* ==========================================================================
+   7. Upload Template Modal
+   ========================================================================== */
+
+/* --- Modal Backdrop & Container --- */
+
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensure it's on top of other content */
+}
+
+.uploadtemplate-model {
+    background-color: white;
+    /* padding: 20px; */ /* Remove padding from the main modal container */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 800px;
+    height: 653px;
+    max-width: 90%;
+    z-index: 1001;
+    overflow: hidden; /* Ensure child elements respect the border-radius */
+    display: flex; /* Use flexbox to structure the modal content */
+    flex-direction: column; /* Stack header and body vertically */
+}
+
+/* --- Modal Header & Tabs --- */
+
+.header-uploadtemplate {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* margin-bottom: 20px; */ /* Remove margin-bottom */
+    width: 100%;
+    height: 65px;
+    background: var(--color-primary);
+    padding: 10px 20px; /* Add padding here for inner content */
+    box-sizing: border-box; /* Include padding in the element's total width */
+    color: var(--color-text-white); /* Set text color to white for better contrast */
+}
+
+.modal-tabs {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem; /* ระยะห่างระหว่างแท็บ */
+    height: 100%;
+}
+
+.modal-tab-btn {
+    background: none;
+    border: none;
+    color:  var(--color-text-white); /* สีตัวอักษรปกติ (แดงอ่อน) */
+    font-family: var(--font-family-base);
+    font-size: 14px; /* 16px */
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    padding: 0 4px; /* เพิ่ม padding ซ้ายขวาเล็กน้อย */
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    transition: color 0.2s ease-in-out;
+}
+
+.modal-tab-btn.active {
+    color: var(--color-text-white); /* สีตัวอักษรเมื่อ active (ขาว) */
+    
+   
+}
+
+.modal-tab-btn.active::after {
+    content: '';
+    position: absolute;
+    bottom: 8px; /* ขยับเส้นขึ้นจากขอบล่าง (ค่ามาก=สูงขึ้น) */
+    left: 0;
+    right: 0;
+    height: 1px;
+    background-color: #AEA6A6; /* สีเส้นใต้ (เหลือง) */
+    
+}
+
+.header-uploadtemplate h3 {
+    margin: 0;
+    font-size: 12px;
+}
+
+/* --- Modal Body & Content --- */
+
+.body-uploadtemplate {
+    padding: 20px; /* Add padding to the body content */
+    flex-grow: 1; /* Allow body to fill remaining space */
+    overflow-y: auto; /* Add scroll if content overflows */
+}
+
+
+
+.content-box {
+    border: 1px solid var(--border-color); /* สร้างเส้นขอบสีเทาอ่อน */
+    border-radius: 8px; /* ทำให้มุมโค้งมน */
+    padding: 1rem; /* เพิ่มระยะห่างภายใน */
+    height: 100%; /* ทำให้กล่องขยายเต็มความสูงของ body-uploadtemplate */
+    box-sizing: border-box; /* คำนวณขนาดรวม padding และ border */
+    background-color: #fdfdfd; /* อาจจะเพิ่มสีพื้นหลังเล็กน้อย */
+}
+
+/* --- Tree View (in Modal) --- */
+
+.tree-view-container {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.tree-view-node {
+    padding: 2px 0;
+}
+
+.tree-view-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.tree-view-item:hover {
+    background-color: #f0f0f0;
+}
+
+.tree-item-name {
+    font-size: 14px;
+    color: var(--text-main);
+}
+
+.tree-toggle-btn {
+    width: 12px;
+    height: 12px;
+    border: none;
+    background-color: transparent;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6' fill='none'%3E%3Cpath d='M5 6L0.669873 0.75L9.33013 0.750001L5 6Z' fill='%23007bff'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+    padding: 0;
+    transform: rotate(-90deg); /* Default state: collapsed */
+    transition: transform 0.2s ease-in-out;
+}
+
+.tree-toggle-btn.expanded {
+    transform: rotate(0deg); /* Expanded state */
+}
+
+.tree-toggle-placeholder {
+    width: 12px; /* Same width as the button for alignment */
+    height: 12px;
+}
+
+.tree-folder-icon {
+  fill: #EE9D00;
+}
+
+/* --- Modal Footer & Buttons --- */
+
+.footer-uploadtemplate {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem 20px; /* ลด padding บน-ล่าง เพื่อให้ปุ่มขยับขึ้น */
+  margin-bottom: 6px;
+  margin-top: -15px;
+
+}
+
+.btn-upload-cancel,
+.btn-upload-save {
+  padding: 8px 32px;
+  border: none;
+  border-radius: 30px;
+  font-family: var(--font-prompt);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  color: white;
+  transition: opacity 0.2s;
+}
+
+.btn-upload-cancel { background-color:#C83133 }
+.btn-upload-save { background-color: #1C7B6D; }
+.btn-upload-cancel:hover, .btn-upload-save:hover { opacity: 0.9; }
+
+/* Search Page Specific Styles */
+/* ==========================================================================
+   8. Search Page
+   ========================================================================== */
+
+/* --- Search Header & Controls --- */
+
+.search-section-hader { 
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: 0.5rem;
+  margin-bottom: 1.5rem;
+  gap: clamp(0.5rem, 2vw, 1.5rem); /* gap ยืดหยุ่น */
+  flex-wrap: nowrap; /* ไม่ให้ขึ้นบรรทัดใหม่ เพื่อให้ปุ่มอยู่ขวาตลอด */
+  padding: 0 clamp(0.5rem, 1vw, 1rem); /* เพิ่ม padding ข้างยืดหยุ่น */
+}
+
+.right-section{
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  flex-shrink: 0; /* ป้องกันไม่ให้ box หดตัว */
+  width: auto; /* ปรับความกว้างอัตโนมัติตามเนื้อหา */
+}
+
+.secrh-hader {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1; /* ให้ยืดหยุ่นตามพื้นที่ */
+  min-width: 290px; /* กำหนดขนาดขั้นต่ำ */
+  max-width: 100%; /* ไม่เกินพื้นที่ที่มี */
+  align-items: flex-start;
+}
+
+.search-controls-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+    max-width: 700px;
+}
+
+.search-bar-container {
+  display: flex;
+  align-items: center;
+  gap: clamp(2px, 1vw, 1rem);
+  width: 100%; 
+  box-sizing: border-box; /* ป้องกัน padding ดันขนาดเพี้ยน */
+}
+
+.title-search{
+  font-weight: 550;
+  font-size: clamp(14px, 2vw, 16px); /* ขนาดตัวอักษรยืดหยุ่น */
+  line-height: 1;
+  color: var(--color-text-brand-green);
+  margin: 0;
+  padding: 0 0 clamp(0.25rem, 1vw, 0.5rem) 0; /* padding ล่างยืดหยุ่น */
+}
+/* --- Search Input Bar --- */
+
+.search-input {
+
+  /* --- Layout / Size --- */
+  flex: 1;
+  min-width: clamp(127px, 30vw, 100px);
+  padding: clamp(6px, 1vw, 8px) 35px clamp(6px, 1vw, 8px) 12px;
+  height:clamp(20px, 5vw, 10px);   
+  /* --- Typography --- */
+  font-family: var(--font-th);
+  font-size: clamp(11px, 1.5vw, 14px);
+  font-weight: 500;
+  color: #343a40;
+  opacity: 1;
+
+  /* --- Background / Icon --- */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%236c757d' class='bi bi-search' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 16px 16px;
+
+  /* --- Border / Shadow --- */
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  outline: none;
+
+  /* --- Animation --- */
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.search-input::placeholder {
+  color: #bbbbbb;
+  opacity: 1;
+  font-weight: 500;
+}
+
+.history-actions.search-action{
+  margin-top: 0px;  
+  margin-bottom: 0px;
+}
+
+/* --- Search Action Buttons (Go, Clear) --- */
+.search-action-btn {
+    padding: 0 clamp(12px, 2vw, 24px);
+    height:clamp(35px,1vw ,50px); 
+    border: none;
+    border-radius: 50px;
+    font-family: var(--font-prompt);
+    font-size: clamp(12px, 1.5vw, 14px);
+    font-weight: 500;
+    cursor: pointer;
+    color: white;
+    transition: filter 0.2s, transform 0.2s;
+    white-space: nowrap;
+}
+
+.search-action-btn:hover {
+    filter: brightness(1.1);
+}
+
+.search-action-btn:active {
+    transform: scale(0.98);
+}
+
+.btn-search-go { background-color: #1C7B6D; }
+.btn-search-clear { background-color: #C83133; }
+
+/* --- Search Tags (Checkboxes) --- */
+.tag-search {
+  display: flex;
+  gap: Clamp(12px ,1vw, 40px);
+}
+
+/*
+ * 8.1. Custom Checkbox for Search Tags
+ * -------------------------------------------------------------------------- */
+
+.custom-checkbox {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  position: relative;
+}
+
+.custom-checkbox input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.custom-checkbox span::before {
+  content: "";
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border: 2px solid var(--color-primary);
+  
+  margin-right: 8px;
+  vertical-align: middle;
+  transition: background-color 0.2s;
+}
+
+.custom-checkbox span::after {
+  content: "✔";
+  position: absolute;
+  left: 9px;
+  top: 50%; /* จัดให้อยู่กึ่งกลางแนวตั้ง */
+  font-size: 10px;
+  color: white;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.custom-checkbox input:checked + span::before {
+  background-color: var(--color-primary); 
+}
+
+.custom-checkbox input:checked + span::after {
+  opacity: 1;
+}
+
+.custom-checkbox span {
+  font-size:13px;        /* ขนาดตัวอักษร */
+  font-weight: 300;
+  line-height: 16px;      /* สูงเท่ากล่อง checkbox */
+  color: #000;
+  display: inline-flex;
+  align-items: center;    /* จัดข้อความให้อยู่กลางแนวตั้ง */
+
+}
+
+/* ==========================================================================
+   9. Responsive Styles (Media Queries)
+   ========================================================================== */
+
+/* --- Tablet (768px and up) --- */
+@media (min-width: 768px ) { 
+  .dashboard-content {
+    padding: 2rem;
+  }
+
+  .menu-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem 4rem;
+  }
+
+  .menu-card {
+    min-height: 140px;
+    padding: 1rem 2rem;
+    gap: 2rem;
+  }
+
+  .card-icon-wrapper {
+    width: 80px;
+    height: 80px;
+  }
+
+  .card-title {
+   
+    font-size: 12px;
+  }
+  .summary-cards-wrapper {
+    flex-direction: column; /* Tablet/Desktop: เรียงแนวนอน */
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: -130px;
+  }
+  
+  .card-body {
+    width: 34rem; /* ปรับความกว้างสำหรับ iPad */
+  }
+.divider {
+    width: 35rem;
+  }
+
+  .custom-checkbox span::before {
+    width: 8px;
+    height: 8px;
+    border-width: 2px;
+  }
+  .custom-checkbox span::after {
+    font-size: 10px;
+    left: 6px;
+  }
+}
+
+/* --- Large Tablet / Small Desktop (820px and up) --- */
+@media (min-width: 820px) {
+  .menu-grid {
+    gap: 4rem 3rem;
+  }
+  .menu-card {
+    gap: 4rem; /* ระยะห่างระหว่างไอคอนกับข้อความ */
+  }
+  .card-title{ 
+    font-size: 13px;
+  }
+  
+  .card-body {
+    width: 45rem; /* ปรับความกว้างสำหรับ iPad */
+  }
+  .divider {
+   
+    width: 35rem;
+    
+  }
+  .historypage{
+    gap: 1rem;
+    padding-right:1rem;
+  }
+  .history-content{
+    flex-direction: column;
+    height: calc(100vh - 2rem); 
+    
+  } 
+  .pagination-info {
+    color: var(--color-primary);
+    align-items: center;
+    gap: 10px;
+    font-size: 12px;
+    display: flex;
+}
+ .pagination-wrapper {
+    flex-direction: row;
+}
+ .search-section-hader {
+   display: flex;
+   min-width: 200px; /* ขนาดเล็กสุดที่หดได้ */
+   max-width: 100%; /* ไม่เกินความกว้าง container */
+   height: auto;
+ }
+
+}
+
+/* --- Large Desktop (1200px and up) --- */
+@media (min-width: 1200px) {
+
+  .menu-grid {
+    gap: 3rem 8rem;
+  }
+  .menu-card {
+    gap: 5rem; /* ระยะห่างระหว่างไอคอนกับข้อความ */
+  }
+  
+  .card-title{
+    font-size: 18px;
+  }
+   .card-body {
+    width: 220px; /* ปรับความกว้างกลับมาเป็นค่าเริ่มต้น */
+  }
+.divider {
+    width: 180px;
+}
+  .summary-cards-wrapper {
+    flex-direction: row; /* Tablet/Desktop: เรียงแนวนอน */
+  }
+  
+
+}
+/* ==========================================================================
+   10. Style Overrides & Specific Cases
+   ========================================================================== */
+
+/* --- Table Column Widths --- */
+.custom-table .th-date { width: 25%; }
+.custom-table .th-machine { width: 25%; }
+.custom-table .th-status { width: 25%; }
+.custom-table .th-action { width: 25%; }
+
+@media (min-width: 820px) {
+  .custom-table .th-status { width: 30%; }
+  .custom-table .th-action { width: 20%; }
+}
+
+/* --- Search Page Table Specifics --- */
+
+/* Remove dashed line under rows in search results table */
+.search-table-body tr::after {
+  display: none !important;
+}
+
+/* Alternating row colors for search results table */
+.row-white {
+    background-color: #ffffff;
+}
+.row-gray {
+    background-color: #F4F5F9;
+}
+
+/* Vertical dividers for search results table (and others if needed) */
+.custom-table .with-separator {
+  border-right: 1px solid #ffffff;
+}
