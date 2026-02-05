@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+  
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --font-en: var(--font-outfit);
+  --font-th: var(--font-prompt);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+    --font-en: var(--font-outfit);
+  --font-th: var(--font-prompt);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  font-family: var(--font-outfit), var(--font-prompt), sans-serif;
+  background: var(--background);
+  color: var(--foreground);
+  /* ไม่ต้องกำหนด font-family ที่นี่ เพราะเรากำหนดไว้ใน pubilc.css แล้ว */
+}
+

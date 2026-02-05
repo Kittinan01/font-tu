@@ -1,0 +1,250 @@
+[INFO] 2026/02/05 15:11:41 Logger initialized successfully
+[INFO] 2026/02/05 15:11:41 🚀 Server started on :8080
+[INFO] 2026/02/05 15:11:41 📡 Available endpoints:
+[INFO] 2026/02/05 15:11:41    GET    /health
+[INFO] 2026/02/05 15:11:41    GET    /api/history-scan
+[INFO] 2026/02/05 15:11:41    GET    /api/search?q=keyword
+[INFO] 2026/02/05 15:11:41    GET    /api/folders
+[INFO] 2026/02/05 15:11:41    GET    /api/dashboard/summary
+[INFO] 2026/02/05 15:11:41    POST   /api/upload
+[INFO] 2026/02/05 15:11:41    POST   /api/scan
+[INFO] 2026/02/05 15:11:41    DELETE /api/history-scan/:id
+[INFO] 2026/02/05 15:14:18 Logger initialized successfully
+[INFO] 2026/02/05 15:14:18 🚀 Server started on :8080
+[INFO] 2026/02/05 15:14:18 📡 Available endpoints:
+[INFO] 2026/02/05 15:14:18    GET    /health
+[INFO] 2026/02/05 15:14:18    GET    /api/history-scan
+[INFO] 2026/02/05 15:14:18    GET    /api/search?q=keyword
+[INFO] 2026/02/05 15:14:18    GET    /api/folders
+[INFO] 2026/02/05 15:14:18    GET    /api/dashboard/summary
+[INFO] 2026/02/05 15:14:18    POST   /api/upload
+[INFO] 2026/02/05 15:14:18    POST   /api/scan
+[INFO] 2026/02/05 15:14:18    DELETE /api/history-scan/:id
+[INFO] 2026/02/05 15:16:58 Logger initialized successfully
+[INFO] 2026/02/05 15:16:58 🚀 Server started on :8080
+[INFO] 2026/02/05 15:16:58 📡 Available endpoints:
+[INFO] 2026/02/05 15:16:58    GET    /health
+[INFO] 2026/02/05 15:16:58    GET    /api/history-scan
+[INFO] 2026/02/05 15:16:58    GET    /api/search?q=keyword
+[INFO] 2026/02/05 15:16:58    GET    /api/folders
+[INFO] 2026/02/05 15:16:58    GET    /api/dashboard/summary
+[INFO] 2026/02/05 15:16:58    POST   /api/upload
+[INFO] 2026/02/05 15:16:58    POST   /api/scan
+[INFO] 2026/02/05 15:16:58    DELETE /api/history-scan/:id
+[INFO] 2026/02/05 15:17:20 Logger initialized successfully
+[INFO] 2026/02/05 15:17:20 🚀 Server started on :8080
+[INFO] 2026/02/05 15:17:20 📡 Available endpoints:
+[INFO] 2026/02/05 15:17:20    GET    /health
+[INFO] 2026/02/05 15:17:20    GET    /api/history-scan
+[INFO] 2026/02/05 15:17:20    GET    /api/search?q=keyword
+[INFO] 2026/02/05 15:17:20    GET    /api/folders
+[INFO] 2026/02/05 15:17:20    GET    /api/dashboard/summary
+[INFO] 2026/02/05 15:17:20    POST   /api/upload
+[INFO] 2026/02/05 15:17:20    POST   /api/scan
+[INFO] 2026/02/05 15:17:20    DELETE /api/history-scan/:id
+[15:17:32] 404 - GET /      1.0096ms
+[15:17:37] 404 - GET /            0s
+[15:17:39] 200 - GET /api/history-scan       224.2µs
+[15:17:47] 200 - GET /api/search            0s
+[15:17:52] 404 - GET /       506.4µs
+[15:17:59] 404 - GET /            0s
+[INFO] 2026/02/05 08:34:17 Logger initialized successfully
+[INFO] 2026/02/05 08:34:18 Logger initialized successfully
+[INFO] 2026/02/05 08:34:19 Logger initialized successfully
+[INFO] 2026/02/05 08:34:19 Logger initialized successfully
+[INFO] 2026/02/05 08:34:20 Logger initialized successfully
+[INFO] 2026/02/05 08:34:22 Logger initialized successfully
+[INFO] 2026/02/05 08:34:26 Logger initialized successfully
+[INFO] 2026/02/05 08:34:33 Logger initialized successfully
+[INFO] 2026/02/05 08:34:46 Logger initialized successfully
+[INFO] 2026/02/05 08:35:12 Logger initialized successfully
+[INFO] 2026/02/05 08:36:03 Logger initialized successfully
+[INFO] 2026/02/05 08:37:05 Logger initialized successfully
+[INFO] 2026/02/05 08:38:04 Logger initialized successfully
+[INFO] 2026/02/05 08:38:04 🚀 Server started on :8080
+[INFO] 2026/02/05 08:38:04 📡 Available endpoints:
+[INFO] 2026/02/05 08:38:04    GET    /health
+[INFO] 2026/02/05 08:38:04    GET    /api/history-scan
+[INFO] 2026/02/05 08:38:04    GET    /api/search?q=keyword
+[INFO] 2026/02/05 08:38:04    GET    /api/folders
+[INFO] 2026/02/05 08:38:04    GET    /api/dashboard/summary
+[INFO] 2026/02/05 08:38:04    POST   /api/upload
+[INFO] 2026/02/05 08:38:04    POST   /api/scan
+[INFO] 2026/02/05 08:38:04    DELETE /api/history-scan/:id
+[INFO] 2026/02/05 08:41:03 Logger initialized successfully
+[INFO] 2026/02/05 08:41:03 🚀 Server started on :8080
+[INFO] 2026/02/05 08:41:03 📡 Available endpoints:
+[INFO] 2026/02/05 08:41:03    GET    /health
+[INFO] 2026/02/05 08:41:03    GET    /api/history-scan
+[INFO] 2026/02/05 08:41:03    GET    /api/search?q=keyword
+[INFO] 2026/02/05 08:41:03    GET    /api/folders
+[INFO] 2026/02/05 08:41:03    GET    /api/dashboard/summary
+[INFO] 2026/02/05 08:41:03    POST   /api/upload
+[INFO] 2026/02/05 08:41:03    POST   /api/scan
+[INFO] 2026/02/05 08:41:03    DELETE /api/history-scan/:id
+[08:42:16] 404 - GET /   93.056185ms
+[08:42:16] 404 - GET /favicon.ico      27.722µs
+[INFO] 2026/02/05 08:51:22 Logger initialized successfully
+[INFO] 2026/02/05 08:51:22 🚀 Server started on :8080
+[INFO] 2026/02/05 08:51:22 📡 Available endpoints:
+[INFO] 2026/02/05 08:51:22    GET    /health
+[INFO] 2026/02/05 08:51:22    GET    /api/history-scan
+[INFO] 2026/02/05 08:51:22    GET    /api/search?q=keyword
+[INFO] 2026/02/05 08:51:22    GET    /api/folders
+[INFO] 2026/02/05 08:51:22    GET    /api/dashboard/summary
+[INFO] 2026/02/05 08:51:22    POST   /api/upload
+[INFO] 2026/02/05 08:51:22    POST   /api/scan
+[INFO] 2026/02/05 08:51:22    DELETE /api/history-scan/:id
+[08:55:36] 404 - GET /    1.181566ms
+[08:55:40] 204 - OPTIONS /api/history-scan      39.676µs
+[08:55:40] 200 - GET /api/history-scan      96.683µs
+[08:55:46] 200 - GET /api/history-scan      46.431µs
+[08:55:53] 404 - GET /      71.549µs
+[08:55:53] 404 - GET /favicon.ico      22.931µs
+[INFO] 2026/02/05 08:57:57 Logger initialized successfully
+[INFO] 2026/02/05 08:57:57 🚀 Server started on :8080
+[INFO] 2026/02/05 08:57:57 📡 Available endpoints:
+[INFO] 2026/02/05 08:57:57    GET    /health
+[INFO] 2026/02/05 08:57:57    GET    /api/history-scan
+[INFO] 2026/02/05 08:57:57    GET    /api/search?q=keyword
+[INFO] 2026/02/05 08:57:57    GET    /api/folders
+[INFO] 2026/02/05 08:57:57    GET    /api/dashboard/summary
+[INFO] 2026/02/05 08:57:57    POST   /api/upload
+[INFO] 2026/02/05 08:57:57    POST   /api/scan
+[INFO] 2026/02/05 08:57:57    DELETE /api/history-scan/:id
+[INFO] 2026/02/05 09:02:51 Logger initialized successfully
+[INFO] 2026/02/05 09:02:51 🚀 Server started on :8080
+[INFO] 2026/02/05 09:02:51 📡 Available endpoints:
+[INFO] 2026/02/05 09:02:51    GET    /health
+[INFO] 2026/02/05 09:02:51    GET    /api/history-scan
+[INFO] 2026/02/05 09:02:51    GET    /api/search?q=keyword
+[INFO] 2026/02/05 09:02:51    GET    /api/folders
+[INFO] 2026/02/05 09:02:51    GET    /api/dashboard/summary
+[INFO] 2026/02/05 09:02:51    POST   /api/upload
+[INFO] 2026/02/05 09:02:51    POST   /api/scan
+[INFO] 2026/02/05 09:02:51    DELETE /api/history-scan/:id
+[09:04:20] 204 - OPTIONS /api/history-scan      60.111µs
+[09:04:20] 200 - GET /api/history-scan     903.617µs
+[09:05:10] 204 - OPTIONS /api/search     112.371µs
+[09:05:10] 200 - GET /api/search    1.796754ms
+[09:11:08] 404 - GET /      35.626µs
+[09:11:12] 404 - GET /      29.935µs
+[09:11:26] 204 - OPTIONS /api/search     575.213µs
+[09:11:27] 200 - GET /api/search     386.995µs
+[09:24:57] 204 - OPTIONS /api/history-scan      82.537µs
+[09:24:57] 200 - GET /api/history-scan     219.341µs
+[09:25:01] 204 - OPTIONS /api/search      17.756µs
+[09:25:01] 200 - GET /api/search     219.646µs
+[INFO] 2026/02/05 09:28:00 Logger initialized successfully
+[INFO] 2026/02/05 09:28:00 🚀 Server started on :8080
+[INFO] 2026/02/05 09:28:00 📡 Available endpoints:
+[INFO] 2026/02/05 09:28:00    GET    /health
+[INFO] 2026/02/05 09:28:00    GET    /api/history-scan
+[INFO] 2026/02/05 09:28:00    GET    /api/search?q=keyword
+[INFO] 2026/02/05 09:28:00    GET    /api/folders
+[INFO] 2026/02/05 09:28:00    GET    /api/dashboard/summary
+[INFO] 2026/02/05 09:28:00    POST   /api/upload
+[INFO] 2026/02/05 09:28:00    POST   /api/scan
+[INFO] 2026/02/05 09:28:00    DELETE /api/history-scan/:id
+[09:28:09] 200 - GET /api/search     273.029µs
+[INFO] 2026/02/05 09:30:13 Logger initialized successfully
+[INFO] 2026/02/05 09:30:13 🚀 Server started on :8080
+[INFO] 2026/02/05 09:30:13 📡 Available endpoints:
+[INFO] 2026/02/05 09:30:13    GET    /health
+[INFO] 2026/02/05 09:30:13    GET    /api/history-scan
+[INFO] 2026/02/05 09:30:13    GET    /api/search?q=keyword
+[INFO] 2026/02/05 09:30:13    GET    /api/folders
+[INFO] 2026/02/05 09:30:13    GET    /api/dashboard/summary
+[INFO] 2026/02/05 09:30:13    POST   /api/upload
+[INFO] 2026/02/05 09:30:13    POST   /api/scan
+[INFO] 2026/02/05 09:30:13    DELETE /api/history-scan/:id
+[09:30:18] 200 - GET /api/history-scan     196.952µs
+[09:30:26] 200 - GET /api/search     415.307µs
+[09:31:15] 200 - GET /api/search     183.782µs
+[09:33:12] 200 - GET /api/search     523.291µs
+[09:33:25] 204 - OPTIONS /api/folders     104.373µs
+[09:33:25] 200 - GET /api/folders     6.26978ms
+[INFO] 2026/02/05 09:33:41 Logger initialized successfully
+[INFO] 2026/02/05 09:33:41 🚀 Server started on :8080
+[INFO] 2026/02/05 09:33:41 📡 Available endpoints:
+[INFO] 2026/02/05 09:33:41    GET    /health
+[INFO] 2026/02/05 09:33:41    GET    /api/history-scan
+[INFO] 2026/02/05 09:33:41    GET    /api/search?q=keyword
+[INFO] 2026/02/05 09:33:41    GET    /api/folders
+[INFO] 2026/02/05 09:33:41    GET    /api/dashboard/summary
+[INFO] 2026/02/05 09:33:41    POST   /api/upload
+[INFO] 2026/02/05 09:33:41    POST   /api/scan
+[INFO] 2026/02/05 09:33:41    DELETE /api/history-scan/:id
+[09:33:48] 200 - GET /api/search     333.851µs
+[09:34:42] 200 - GET /api/search     393.192µs
+[09:39:35] 200 - GET /api/folders     249.517µs
+[INFO] 2026/02/05 09:39:53 Logger initialized successfully
+[INFO] 2026/02/05 09:39:53 🚀 Server started on :8080
+[INFO] 2026/02/05 09:39:53 📡 Available endpoints:
+[INFO] 2026/02/05 09:39:53    GET    /health
+[INFO] 2026/02/05 09:39:53    GET    /api/history-scan
+[INFO] 2026/02/05 09:39:53    GET    /api/search?q=keyword
+[INFO] 2026/02/05 09:39:53    GET    /api/folders
+[INFO] 2026/02/05 09:39:53    GET    /api/dashboard/summary
+[INFO] 2026/02/05 09:39:53    POST   /api/upload
+[INFO] 2026/02/05 09:39:53    POST   /api/scan
+[INFO] 2026/02/05 09:39:53    DELETE /api/history-scan/:id
+[09:39:59] 200 - GET /api/history-scan     146.463µs
+[09:40:03] 200 - GET /api/search     376.099µs
+[INFO] 2026/02/05 09:41:03 Logger initialized successfully
+[INFO] 2026/02/05 09:41:03 🚀 Server started on :8080
+[INFO] 2026/02/05 09:41:03 📡 Available endpoints:
+[INFO] 2026/02/05 09:41:03    GET    /health
+[INFO] 2026/02/05 09:41:03    GET    /api/history-scan
+[INFO] 2026/02/05 09:41:03    GET    /api/search?q=keyword
+[INFO] 2026/02/05 09:41:03    GET    /api/folders
+[INFO] 2026/02/05 09:41:03    GET    /api/dashboard/summary
+[INFO] 2026/02/05 09:41:03    POST   /api/upload
+[INFO] 2026/02/05 09:41:03    POST   /api/scan
+[INFO] 2026/02/05 09:41:03    DELETE /api/history-scan/:id
+[09:41:40] 200 - GET /api/search      369.77µs
+[INFO] 2026/02/05 09:42:09 Logger initialized successfully
+[INFO] 2026/02/05 09:42:09 🚀 Server started on :8080
+[INFO] 2026/02/05 09:42:09 📡 Available endpoints:
+[INFO] 2026/02/05 09:42:09    GET    /health
+[INFO] 2026/02/05 09:42:09    GET    /api/history-scan
+[INFO] 2026/02/05 09:42:09    GET    /api/search?q=keyword
+[INFO] 2026/02/05 09:42:09    GET    /api/folders
+[INFO] 2026/02/05 09:42:09    GET    /api/dashboard/summary
+[INFO] 2026/02/05 09:42:09    POST   /api/upload
+[INFO] 2026/02/05 09:42:09    POST   /api/scan
+[INFO] 2026/02/05 09:42:09    DELETE /api/history-scan/:id
+[09:42:14] 200 - GET /api/search     342.157µs
+[09:42:23] 200 - GET /api/history-scan     200.911µs
+[09:42:41] 200 - GET /api/history-scan      86.749µs
+[INFO] 2026/02/05 09:55:38 Logger initialized successfully
+[INFO] 2026/02/05 09:55:38 🚀 Server started on :8080
+[INFO] 2026/02/05 09:55:38 📡 Available endpoints:
+[INFO] 2026/02/05 09:55:38    GET    /health
+[INFO] 2026/02/05 09:55:38    GET    /api/history-scan
+[INFO] 2026/02/05 09:55:38    GET    /api/search?q=keyword
+[INFO] 2026/02/05 09:55:38    GET    /api/folders
+[INFO] 2026/02/05 09:55:38    GET    /api/dashboard/summary
+[INFO] 2026/02/05 09:55:38    POST   /api/upload
+[INFO] 2026/02/05 09:55:38    POST   /api/scan
+[INFO] 2026/02/05 09:55:38    DELETE /api/history-scan/:id
+[09:55:43] 200 - GET /api/history-scan     174.658µs
+[09:55:45] 200 - GET /api/history-scan      45.541µs
+[09:55:52] 200 - GET /api/history-scan      55.815µs
+[09:55:58] 200 - GET /api/search     352.304µs
+[09:56:05] 200 - GET /api/history-scan      57.196µs
+[09:56:09] 200 - GET /api/search     190.653µs
+[INFO] 2026/02/05 10:01:16 Logger initialized successfully
+[INFO] 2026/02/05 10:01:16 🚀 Server started on :8080
+[INFO] 2026/02/05 10:01:16 📡 Available endpoints:
+[INFO] 2026/02/05 10:01:16    GET    /health
+[INFO] 2026/02/05 10:01:16    GET    /api/history-scan
+[INFO] 2026/02/05 10:01:16    GET    /api/search?q=keyword
+[INFO] 2026/02/05 10:01:16    GET    /api/folders
+[INFO] 2026/02/05 10:01:16    GET    /api/dashboard/summary
+[INFO] 2026/02/05 10:01:16    POST   /api/upload
+[INFO] 2026/02/05 10:01:16    POST   /api/scan
+[INFO] 2026/02/05 10:01:16    DELETE /api/history-scan/:id
+[10:01:21] 200 - GET /api/history-scan     151.424µs
+[10:01:47] 200 - GET /api/search     266.922µs
+[10:02:05] 200 - GET /api/search    1.689878ms

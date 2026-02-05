@@ -1,0 +1,333 @@
+basePath: /
+definitions:
+  models.Response:
+    properties:
+      data: {}
+      error:
+        type: string
+      message:
+        type: string
+      meta: {}
+      success:
+        type: boolean
+    type: object
+  models.ScanRequest:
+    properties:
+      barcode:
+        type: string
+      machine:
+        type: string
+    type: object
+host: localhost:8080
+info:
+  contact: {}
+  description: Simple Document Management System API
+  title: Document Management System API
+  version: "1.0"
+paths:
+  /api/dashboard/stats:
+    get:
+      description: Returns dashboard statistics including daily uploads and monthly
+        active users
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Response'
+      summary: Get dashboard statistics
+      tags:
+      - dashboard
+  /api/dashboard/summary:
+    get:
+      description: Returns dashboard summary with total users, sessions, files and
+        storage
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Response'
+      summary: Get dashboard summary
+      tags:
+      - dashboard
+  /api/folders:
+    get:
+      description: Returns the complete folder tree structure
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Response'
+      summary: Get folder tree structure
+      tags:
+      - folders
+  /api/folders/{id}:
+    get:
+      description: Returns a specific folder and its children by ID
+      parameters:
+      - description: Folder ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Response'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/models.Response'
+      summary: Get a specific folder
+      tags:
+      - folders
+  /api/history:
+    get:
+      description: Returns all history scan records
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Response'
+      summary: Get all history scan records
+      tags:
+      - history
+    post:
+      consumes:
+      - application/json
+      description: Creates a new scan record with machine name and barcode
+      parameters:
+      - description: Scan request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/models.ScanRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/models.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/models.Response'
+      summary: Create a new scan record
+      tags:
+      - history
+  /api/history/{id}:
+    delete:
+      description: Deletes a history scan record by ID
+      parameters:
+      - description: Scan ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/models.Response'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/models.Response'
+      summary: Delete a history scan record
+      tags:
+      - history
+    get:
+      description: Returns a specific history scan record by ID
+      parameters:
+      - description: Scan ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/models.Response'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/models.Response'
+      summary: Get a specific history scan record
+      tags:
+      - history
+  /api/search:
+    get:
+      description: Search through documents with optional filters
+      parameters:
+      - description: Search query
+        in: query
+        name: q
+        type: string
+      - description: Filter by document name
+        in: query
+        name: document
+        type: boolean
+      - description: Filter by tag
+        in: query
+        name: tag
+        type: boolean
+      - description: Filter by content
+        in: query
+        name: content
+        type: boolean
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Response'
+      summary: Search documents
+      tags:
+      - search
+  /api/search/{id}:
+    get:
+      description: Returns a specific document by document number
+      parameters:
+      - description: Document number
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Response'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/models.Response'
+      summary: Get a specific document
+      tags:
+      - search
+  /api/upload:
+    post:
+      consumes:
+      - multipart/form-data
+      description: Uploads a file and returns its metadata
+      parameters:
+      - description: File to upload
+        in: formData
+        name: file
+        required: true
+        type: file
+      - description: Optional folder ID
+        in: formData
+        name: folderId
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/models.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.Response'
+      summary: Upload a single file
+      tags:
+      - upload
+  /api/upload/{filename}:
+    delete:
+      description: Deletes a file by filename
+      parameters:
+      - description: Filename
+        in: path
+        name: filename
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/models.Response'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/models.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.Response'
+      summary: Delete an uploaded file
+      tags:
+      - upload
+  /api/upload/multiple:
+    post:
+      consumes:
+      - multipart/form-data
+      description: Uploads multiple files in one request
+      parameters:
+      - description: Multiple files
+        in: formData
+        name: files
+        required: true
+        type: file
+      - description: Optional folder ID
+        in: formData
+        name: folderId
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/models.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.Response'
+      summary: Upload multiple files
+      tags:
+      - upload
+swagger: "2.0"
