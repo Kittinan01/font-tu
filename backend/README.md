@@ -12,7 +12,7 @@
 - ✅ Dashboard Statistics
 - ✅ History Scan Management
 - ✅ Error Handling & Logging
-- ✅ Mock Data (พร้อมใช้งานทันที)
+- ✅ Mock Data 
 
 ## 📋 Prerequisites
 
@@ -249,26 +249,8 @@ GOOS=windows GOARCH=amd64 go build -o server.exe main.go
 | `UPLOAD_DIR` | `./uploads` | Upload directory |
 | `DATABASE_URL` | `""` | Database connection (future) |
 
-## 🗄️ Database Integration (Future)
 
-ตอนนี้ใช้ Mock Data แต่สามารถเชื่อมต่อ Database ได้:
-
-### PostgreSQL
-```go
-import "gorm.io/gorm"
-import "gorm.io/driver/postgres"
-
-db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
-```
-
-### MySQL
-```go
-import "gorm.io/driver/mysql"
-
-db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
-```
-
-## 🐛 Troubleshooting
+## 🐛 Troubleshooting 
 
 ### Port already in use
 ```bash
@@ -302,15 +284,7 @@ chmod 755 uploads
 4. Push to branch (`git push origin feature/AmazingFeature`)
 5. Open Pull Request
 
-## 📄 License
-
-MIT License
-
-## 👨‍💻 Author
-
-Your Name
 
 ## 🙏 Acknowledgments
-
 - Fiber Framework Team
 - Go Community
